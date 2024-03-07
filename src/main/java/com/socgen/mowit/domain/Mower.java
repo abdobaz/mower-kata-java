@@ -19,7 +19,12 @@ public class Mower {
     }
 
     public void moveForward() {
-        this.xPosition++;
+        switch (this.direction) {
+            case W -> this.xPosition--;
+            case N -> this.yPosition++;
+            case E -> this.xPosition++;
+            case S -> this.yPosition--;
+        }
     }
 
     public void turnRight() {
