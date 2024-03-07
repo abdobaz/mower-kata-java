@@ -1,7 +1,5 @@
 package com.socgen.mowit.domain;
 
-import javax.lang.model.element.ModuleElement;
-
 public class Mower {
     private Direction direction;
 
@@ -10,7 +8,12 @@ public class Mower {
     }
 
     public void turnLeft() {
-        this.direction = Direction.W;
+        switch (this.direction) {
+            case W -> this.direction = Direction.S;
+            case N -> this.direction = Direction.W;
+            case E -> this.direction = Direction.N;
+            case S -> this.direction = Direction.E;
+        }
     }
 
     public void moveForward() {
@@ -18,10 +21,11 @@ public class Mower {
     }
 
     public void turnRight() {
-        if(Direction.N.equals(this.direction)) {
-            this.direction = Direction.E;
-        } else {
-            this.direction = Direction.S;
+        switch (this.direction) {
+            case W -> this.direction = Direction.N;
+            case N -> this.direction = Direction.E;
+            case E -> this.direction = Direction.S;
+            case S -> this.direction = Direction.W;
         }
     }
 
