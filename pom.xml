@@ -15,6 +15,7 @@
         <junit-jupiter.version>5.10.2</junit-jupiter.version>
         <assertj-core.version>3.25.3</assertj-core.version>
         <lombok.version>1.18.30</lombok.version>
+        <mockito-jupiter.version>5.11.0</mockito-jupiter.version>
     </properties>
 
     <dependencies>
@@ -29,6 +30,13 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-params</artifactId>
             <version>${junit-jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>${mockito-jupiter.version}</version>
             <scope>test</scope>
         </dependency>
 
