@@ -1,25 +1,31 @@
 package com.socgen.mowit.domain;
 
-public class Mower {
-    private final String direction;
+import javax.lang.model.element.ModuleElement;
 
-    public Mower(String direction) {
+public class Mower {
+    private Direction direction;
+
+    public Mower(Direction direction) {
         this.direction = direction;
     }
 
     public void turnLeft() {
-        throw new UnsupportedOperationException("Not yet Implemented");
+        this.direction = Direction.W;
     }
 
     public void moveForward() {
-        throw new UnsupportedOperationException("Not yet Implemented");
+
     }
 
     public void turnRight() {
-        throw new UnsupportedOperationException("Not yet Implemented");
+        if(Direction.N.equals(this.direction)) {
+            this.direction = Direction.E;
+        } else {
+            this.direction = Direction.S;
+        }
     }
 
-    public String getDirection() {
+    public Direction getDirection() {
         return this.direction;
     }
 }

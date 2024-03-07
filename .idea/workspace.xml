@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0098e4ef-799f-43cc-8a57-40dce50ead40" name="Changes" comment="add mower instruction test">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/socgen/mowit/domain/Mower.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/socgen/mowit/domain/MowerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="0098e4ef-799f-43cc-8a57-40dce50ead40" name="Changes" comment="[Mower] add instruction tests">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/socgen/mowit/domain/Direction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/socgen/mowit/domain/Mower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socgen/mowit/domain/Mower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/socgen/mowit/domain/MowerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/socgen/mowit/domain/MowerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +19,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -144,7 +144,23 @@
       <option name="project" value="LOCAL" />
       <updated>1709821050630</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add mower instruction test">
+      <option name="closed" value="true" />
+      <created>1709822045016</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1709822045016</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add mower instruction test">
+      <option name="closed" value="true" />
+      <created>1709822098294</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1709822098294</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -161,8 +177,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit" />
     <MESSAGE value="add README FILE" />
-    <MESSAGE value="add mower instruction test" />
-    <option name="LAST_COMMIT_MESSAGE" value="add mower instruction test" />
+    <MESSAGE value="[Mower] add instruction tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Mower] add instruction tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

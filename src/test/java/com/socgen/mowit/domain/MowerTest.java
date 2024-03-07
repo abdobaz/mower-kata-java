@@ -10,8 +10,7 @@ public class MowerTest {
 
     @BeforeEach
     void init() {
-        mower = new Mower("N");
-
+        mower = new Mower(Direction.N);
     }
 
     @Test
@@ -21,7 +20,7 @@ public class MowerTest {
         mower.turnLeft();
 
         //THEN
-        Assertions.assertThat(mower.getDirection()).isEqualTo("W");
+        Assertions.assertThat(mower.getDirection()).isEqualTo(Direction.W);
     }
 
     @Test
@@ -30,7 +29,7 @@ public class MowerTest {
         mower.turnRight();
 
         //THEN
-        Assertions.assertThat(mower.getDirection()).isEqualTo("E");
+        Assertions.assertThat(mower.getDirection()).isEqualTo(Direction.E);
     }
 
     @Test
@@ -40,7 +39,7 @@ public class MowerTest {
         mower.turnRight();
 
         //THEN
-        Assertions.assertThat(mower.getDirection()).isEqualTo("S");
+        Assertions.assertThat(mower.getDirection()).isEqualTo(Direction.S);
     }
 
     @Test
@@ -49,7 +48,7 @@ public class MowerTest {
         mower.moveForward();
 
         //THEN
-        Assertions.assertThat(mower.getDirection()).isEqualTo("N");
+        Assertions.assertThat(mower.getDirection()).isEqualTo(Direction.N);
     }
 
 }
