@@ -1,4 +1,4 @@
-package com.socgen.mowit.services;
+package com.socgen.mowit.domain.services;
 
 import com.socgen.mowit.domain.Lawn;
 import com.socgen.mowit.domain.Mower;
@@ -14,11 +14,18 @@ public class MowerControl {
                 .forEach( instruction -> {
 
                     switch ((char)instruction) {
-                        case 'A' -> mower.moveForward();
+                        case 'A' -> moveForward(mower);
                         case 'G' -> mower.turnLeft();
                         case 'D' -> mower.turnRight();
                         default ->  throw new UnsupportedOperationException("Invalid instruction "+ (char)instruction);
                     }
                 });
+    }
+
+    private void moveForward(Mower mower) {
+        if(mower.getPosition().getX() + 1 >= 0 && mower.getPosition().getX() + 1 <= lawn.bottomRightCorner()
+                || mower.getPosition().getY() + 1 >= 0 && mower.getPosition().getY() + 1 <= lawn.upperRightCorner()) {
+            mower.moveForward();
+        }
     }
 }
