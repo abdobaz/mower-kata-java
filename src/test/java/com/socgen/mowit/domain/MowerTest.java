@@ -65,4 +65,61 @@ public class MowerTest {
         Assertions.assertThat(mower.getDirection()).isEqualTo(Direction.N);
     }
 
+
+    @Test
+    void should_add_1_to_y_position_when_the_mower_move_forward_and_direction_is_N() {
+        //GIVEN
+        var myMower = new Mower(Direction.N);
+
+        //WHEN
+        myMower.moveForward();
+
+        //THEN
+        Assertions.assertThat(myMower.getDirection()).isEqualTo(Direction.N);
+        Assertions.assertThat(myMower.getxPosition()).isZero();
+        Assertions.assertThat(myMower.getyPosition()).isEqualTo(1);
+    }
+
+    @Test
+    void should_add_1_to_x_position_when_the_mower_move_forward_and_direction_is_E() {
+        //GIVEN
+        var myMower = new Mower(Direction.E);
+
+        //WHEN
+        myMower.moveForward();
+
+        //THEN
+        Assertions.assertThat(myMower.getDirection()).isEqualTo(Direction.E);
+        Assertions.assertThat(myMower.getxPosition()).isEqualTo(1);
+        Assertions.assertThat(myMower.getyPosition()).isZero();
+    }
+
+    @Test
+    void should_minus_1_to_x_position_when_the_mower_move_forward_and_direction_is_W() {
+        //GIVEN
+        var myMower = new Mower(Direction.W);
+
+        //WHEN
+        myMower.moveForward();
+
+        //THEN
+        Assertions.assertThat(myMower.getDirection()).isEqualTo(Direction.W);
+        Assertions.assertThat(myMower.getxPosition()).isEqualTo(-1);
+        Assertions.assertThat(myMower.getyPosition()).isZero();
+    }
+
+    @Test
+    void should_minus_1_to_Y_position_when_the_mower_move_forward_and_direction_is_S() {
+        //GIVEN
+        var myMower = new Mower(Direction.S);
+
+        //WHEN
+        myMower.moveForward();
+
+        //THEN
+        Assertions.assertThat(myMower.getDirection()).isEqualTo(Direction.S);
+        Assertions.assertThat(myMower.getxPosition()).isZero();
+        Assertions.assertThat(myMower.getyPosition()).isEqualTo(-1);
+    }
+
 }

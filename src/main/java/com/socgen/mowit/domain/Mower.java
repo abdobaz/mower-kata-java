@@ -2,6 +2,8 @@ package com.socgen.mowit.domain;
 
 public class Mower {
     private Direction direction;
+    private int xPosition = 0;
+    private int yPosition = 0;
 
     public Mower(Direction direction) {
         this.direction = direction;
@@ -17,7 +19,7 @@ public class Mower {
     }
 
     public void moveForward() {
-
+        this.xPosition++;
     }
 
     public void turnRight() {
@@ -31,5 +33,13 @@ public class Mower {
 
     public Direction getDirection() {
         return this.direction;
+    }
+
+    public int getxPosition() {
+        return xPosition;
+    }
+
+    public int getyPosition() {
+        return yPosition;
     }
 }
