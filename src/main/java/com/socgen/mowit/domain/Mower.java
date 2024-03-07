@@ -1,13 +1,15 @@
 package com.socgen.mowit.domain;
 
-public class Mower {
-    private Direction direction;
-    private int xPosition = 0;
-    private int yPosition = 0;
 
-    public Mower(Direction direction) {
-        this.direction = direction;
-    }
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
+public class Mower {
+
+    private MowerPosition position;
+    private Direction direction;
 
     public void turnLeft() {
         switch (this.direction) {
@@ -20,10 +22,10 @@ public class Mower {
 
     public void moveForward() {
         switch (this.direction) {
-            case W -> this.xPosition--;
-            case N -> this.yPosition++;
-            case E -> this.xPosition++;
-            case S -> this.yPosition--;
+            case W -> this.getPosition().setX(this.getPosition().getX() - 1);
+            case N -> this.getPosition().setY(this.getPosition().getY() + 1);
+            case E -> this.getPosition().setX(this.getPosition().getX() + 1);
+            case S -> this.getPosition().setY(this.getPosition().getY() - 1);
         }
     }
 
@@ -34,17 +36,5 @@ public class Mower {
             case E -> this.direction = Direction.S;
             case S -> this.direction = Direction.W;
         }
-    }
-
-    public Direction getDirection() {
-        return this.direction;
-    }
-
-    public int getxPosition() {
-        return xPosition;
-    }
-
-    public int getyPosition() {
-        return yPosition;
     }
 }
