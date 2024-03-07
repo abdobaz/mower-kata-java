@@ -1,11 +1,10 @@
 package com.socgen.mowit.domain.converter;
 
 import com.socgen.mowit.domain.EnumInstruction;
-import org.assertj.core.api.Assertions;
+import com.socgen.mowit.domain.exception.UnknownInstruction;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 import static com.socgen.mowit.domain.EnumInstruction.*;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -38,7 +37,7 @@ class CommandConverterTest {
     @Test
     void GIVEN_command_T_WHEN_map_THEN_throw_exception() {
         assertThatThrownBy(() -> commandConverter.map("GTD"))
-                        .isExactlyInstanceOf(NoSuchElementException.class)
+                        .isExactlyInstanceOf(UnknownInstruction.class)
                                 .hasMessage("No Instruction present for T");
     }
 }

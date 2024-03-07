@@ -1,6 +1,7 @@
 package com.socgen.mowit.domain;
 
 
+import com.socgen.mowit.domain.exception.UnknownDirection;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -9,32 +10,37 @@ import lombok.Getter;
 public class Mower {
 
     private MowerPosition position;
-    private Direction direction;
+    private EnumDirection direction;
 
     public void turnLeft() {
         switch (this.direction) {
-            case W -> this.direction = Direction.S;
-            case N -> this.direction = Direction.W;
-            case E -> this.direction = Direction.N;
-            case S -> this.direction = Direction.E;
+            case WEST -> this.direction = EnumDirection.SOUTH;
+            case NORTH -> this.direction = EnumDirection.WEST;
+            case EAST -> this.direction = EnumDirection.NORTH;
+            case SOUTH -> this.direction = EnumDirection.EAST;
+            default -> throw new UnknownDirection(this.direction);
         }
     }
 
     public void moveForward() {
+        var currentXPosition = this.getPosition().getX();
+        var currentYPosition = this.getPosition().getY();
         switch (this.direction) {
-            case W -> this.getPosition().setX(this.getPosition().getX() - 1);
-            case N -> this.getPosition().setY(this.getPosition().getY() + 1);
-            case E -> this.getPosition().setX(this.getPosition().getX() + 1);
-            case S -> this.getPosition().setY(this.getPosition().getY() - 1);
+            case WEST -> this.getPosition().setX(currentXPosition - 1);
+            case NORTH -> this.getPosition().setY(currentYPosition + 1);
+            case EAST -> this.getPosition().setX(currentXPosition + 1);
+            case SOUTH -> this.getPosition().setY(currentYPosition - 1);
+            default -> throw new UnknownDirection(this.direction);
         }
     }
 
     public void turnRight() {
         switch (this.direction) {
-            case W -> this.direction = Direction.N;
-            case N -> this.direction = Direction.E;
-            case E -> this.direction = Direction.S;
-            case S -> this.direction = Direction.W;
+            case WEST -> this.direction = EnumDirection.NORTH;
+            case NORTH -> this.direction = EnumDirection.EAST;
+            case EAST -> this.direction = EnumDirection.SOUTH;
+            case SOUTH -> this.direction = EnumDirection.WEST;
+            default -> throw new UnknownDirection(this.direction);
         }
     }
 }

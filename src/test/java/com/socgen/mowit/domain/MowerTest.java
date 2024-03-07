@@ -16,7 +16,7 @@ public class MowerTest {
 
     @ParameterizedTest(name = "[{index}] Given mower with direction {0} WHEN turn right Then direction should be {1}")
     @MethodSource("turnRightArgumentsTest")
-    void should_set_orientation_when_the_mower_turn_right(Direction currentDirection, Direction expectedDirection) {
+    void should_set_orientation_when_the_mower_turn_right(EnumDirection currentDirection, EnumDirection expectedDirection) {
         //GIVEN
         var myMower = new Mower(mowerPosition,currentDirection) ;
 
@@ -31,13 +31,13 @@ public class MowerTest {
 
     private static Stream<Arguments> turnRightArgumentsTest() {
         return Stream.of(
-                Arguments.of(Direction.W, Direction.N), Arguments.of(Direction.N, Direction.E),
-                Arguments.of(Direction.E, Direction.S), Arguments.of(Direction.S, Direction.W));
+                Arguments.of(EnumDirection.WEST, EnumDirection.NORTH), Arguments.of(EnumDirection.NORTH, EnumDirection.EAST),
+                Arguments.of(EnumDirection.EAST, EnumDirection.SOUTH), Arguments.of(EnumDirection.SOUTH, EnumDirection.WEST));
     }
 
     @ParameterizedTest(name = "[{index}] Given mower with direction {0} WHEN turn left Then direction should be {1}")
     @MethodSource("turnLeftArgumentsTest")
-    void should_set_orientation_when_the_mower_turn_Left(Direction currentDirection, Direction expectedDirection) {
+    void should_set_orientation_when_the_mower_turn_Left(EnumDirection currentDirection, EnumDirection expectedDirection) {
         //GIVEN
         var myMower = new Mower(mowerPosition,currentDirection) ;
 
@@ -52,20 +52,20 @@ public class MowerTest {
 
     private static Stream<Arguments> turnLeftArgumentsTest() {
         return Stream.of(
-                Arguments.of(Direction.W, Direction.S), Arguments.of(Direction.S, Direction.E),
-                Arguments.of(Direction.E, Direction.N), Arguments.of(Direction.N, Direction.W));
+                Arguments.of(EnumDirection.WEST, EnumDirection.SOUTH), Arguments.of(EnumDirection.SOUTH, EnumDirection.EAST),
+                Arguments.of(EnumDirection.EAST, EnumDirection.NORTH), Arguments.of(EnumDirection.NORTH, EnumDirection.WEST));
     }
 
     @Test
     void should_increase_by_1_to_y_position_when_the_mower_move_forward_and_direction_is_N() {
         //GIVEN
-        var myMower = new Mower(mowerPosition,Direction.N);
+        var myMower = new Mower(mowerPosition, EnumDirection.NORTH);
 
         //WHEN
         myMower.moveForward();
 
         //THEN
-        assertThat(myMower.getDirection()).isEqualTo(Direction.N);
+        assertThat(myMower.getDirection()).isEqualTo(EnumDirection.NORTH);
         assertThat(myMower.getPosition().getX()).isZero();
         assertThat(myMower.getPosition().getY()).isEqualTo(1);
     }
@@ -73,13 +73,13 @@ public class MowerTest {
     @Test
     void should_increase_by_1_to_x_position_when_the_mower_move_forward_and_direction_is_E() {
         //GIVEN
-        var myMower = new Mower(mowerPosition,Direction.E);
+        var myMower = new Mower(mowerPosition, EnumDirection.EAST);
 
         //WHEN
         myMower.moveForward();
 
         //THEN
-        assertThat(myMower.getDirection()).isEqualTo(Direction.E);
+        assertThat(myMower.getDirection()).isEqualTo(EnumDirection.EAST);
         assertThat(myMower.getPosition().getX()).isEqualTo(1);
         assertThat(myMower.getPosition().getY()).isZero();
     }
@@ -87,13 +87,13 @@ public class MowerTest {
     @Test
     void should_decrease_by_1_from_x_position_when_the_mower_move_forward_and_direction_is_W() {
         //GIVEN
-        var myMower = new Mower(mowerPosition, Direction.W);
+        var myMower = new Mower(mowerPosition, EnumDirection.WEST);
 
         //WHEN
         myMower.moveForward();
 
         //THEN
-        assertThat(myMower.getDirection()).isEqualTo(Direction.W);
+        assertThat(myMower.getDirection()).isEqualTo(EnumDirection.WEST);
         assertThat(myMower.getPosition().getX()).isEqualTo(-1);
         assertThat(myMower.getPosition().getY()).isZero();
     }
@@ -101,13 +101,13 @@ public class MowerTest {
     @Test
     void should_decrease_by_1_from_Y_position_when_the_mower_move_forward_and_direction_is_S() {
         //GIVEN
-        var myMower = new Mower(mowerPosition, Direction.S);
+        var myMower = new Mower(mowerPosition, EnumDirection.SOUTH);
 
         //WHEN
         myMower.moveForward();
 
         //THEN
-        assertThat(myMower.getDirection()).isEqualTo(Direction.S);
+        assertThat(myMower.getDirection()).isEqualTo(EnumDirection.SOUTH);
         assertThat(myMower.getPosition().getX()).isZero();
         assertThat(myMower.getPosition().getY()).isEqualTo(-1);
     }

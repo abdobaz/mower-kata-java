@@ -2,24 +2,25 @@ package com.socgen.mowit.domain.services;
 
 import com.socgen.mowit.domain.Lawn;
 import com.socgen.mowit.domain.Mower;
+import com.socgen.mowit.domain.converter.CommandConverter;
 import lombok.RequiredArgsConstructor;
 
 
 @RequiredArgsConstructor
 public class MowerControl {
     private final Lawn lawn;
+    private final CommandConverter commandConverter;
 
     public void execute(Mower mower, String command) {
-       command.chars()
-                .forEach( instruction -> {
-
-                    switch ((char)instruction) {
-                        case 'A' -> moveForward(mower);
-                        case 'G' -> mower.turnLeft();
-                        case 'D' -> mower.turnRight();
-                        default ->  throw new UnsupportedOperationException("Invalid instruction "+ (char)instruction);
-                    }
-                });
+        this.commandConverter.map(command)
+                        .forEach(enumInstruction -> {
+                            switch (enumInstruction) {
+                                case FORWARD -> moveForward(mower);
+                                case LEFT -> mower.turnLeft();
+                                case RIGHT -> mower.turnRight();
+                                default ->  throw new UnsupportedOperationException("Invalid instruction "+ enumInstruction);
+                            }
+                        } );
     }
 
     private void moveForward(Mower mower) {
