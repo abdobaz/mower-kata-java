@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0098e4ef-799f-43cc-8a57-40dce50ead40" name="Changes" comment="[Mower] forward instruction - code refactoring">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/socgen/mowit/domain/Lawn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/socgen/mowit/services/MowerControl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/socgen/mowit/services/MowerControlTest.java" afterDir="false" />
+    <list default="true" id="0098e4ef-799f-43cc-8a57-40dce50ead40" name="Changes" comment="[Mower-instructions] code refactoring">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mowerInput.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/socgen/mowit/domain/EnumDirectionTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/socgen/mowit/domain/EnumInstructionTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/socgen/mowit/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socgen/mowit/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/socgen/mowit/domain/EnumDirection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socgen/mowit/domain/EnumDirection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/socgen/mowit/domain/Mower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socgen/mowit/domain/Mower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/socgen/mowit/domain/exception/UnknownDirection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/socgen/mowit/domain/exception/UnknownDirection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/socgen/mowit/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/socgen/mowit/MainTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Record" />
+        <option value="Enum" />
         <option value="Class" />
         <option value="JUnit5 Test Class" />
       </list>
@@ -33,12 +36,12 @@
   <component name="GitRewordedCommitMessages">
     <option name="commitMessagesMapping">
       <RewordedCommitMessageMapping>
-        <option name="originalMessage" value="[Mower] instruction tests code refactoring" />
-        <option name="rewordedMessage" value="[Mower] instruction tests code refactoring" />
+        <option name="originalMessage" value="[Mower-instructions] code refactoring" />
+        <option name="rewordedMessage" value="[Mower-instructions] code refactoring" />
       </RewordedCommitMessageMapping>
     </option>
     <option name="currentCommit" value="1" />
-    <option name="onto" value="6db6273dbc523a68e50e656df2db7d156903a132" />
+    <option name="onto" value="c85bff3d0261dfa20b73f8211f63c5d92034fc68" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar!/lombok/AllArgsConstructor.class" root0="SKIP_INSPECTION" />
@@ -58,10 +61,26 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
+    "JUnit.All in mower-kata (1).executor": "Run",
+    "JUnit.All in mower-kata.executor": "Run",
+    "JUnit.CommandConverterTest.GIVEN_command_T_WHEN_map_THEN_throw_exception.executor": "Run",
+    "JUnit.CommandConverterTest.GIVEN_command_is_GADAGAGAA_WHEN_map_THEN_return_9_InstructionList.executor": "Run",
+    "JUnit.CommandConverterTest.GIVEN_command_is_empty_WHEN_map_THEN_return_empty_list.executor": "Run",
+    "JUnit.CommandConverterTest.should_return_mapped_instructions_list.executor": "Run",
+    "JUnit.EnumDirectionTest.test_get_ByCode.executor": "Run",
+    "JUnit.EnumInstructionTest.executor": "Run",
+    "JUnit.EnumInstructionTest.test_get_enum_instruction_ByCode.executor": "Run",
     "JUnit.MowerControlTest.executor": "Run",
+    "JUnit.MowerControlTest.should_move_the_mower_to_position_1_3_with_N_Direction_when_execute_with_GAGAGAGAA_command.executor": "Run",
+    "JUnit.MowerControlTest.should_move_the_mower_to_position_1_3_with_N_Direction_when_execute_with_GAGAGAGAA_commands.executor": "Run",
+    "JUnit.MowerControlTest.should_move_the_mower_to_position_5_1_with_E_Direction_when_execute_with_AADAADADDA_commands.executor": "Run",
+    "JUnit.MowerControlTest.should_not_move_the_mower_when_execute_with_AADAADADDA_commands.executor": "Run",
+    "JUnit.MowerControlTest.should_throw_Exception.executor": "Run",
+    "JUnit.MowerControlTest.should_throw_Exception_when_instruction_invalid.executor": "Run",
     "JUnit.MowerTest.executor": "Run",
     "JUnit.MowerTest.should_add_1_to_Y_position_when_the_mower_move_forward_and_direction_is_E.executor": "Run",
     "JUnit.MowerTest.should_add_1_to_x_position_when_the_mower_move_forward_and_direction_is_N.executor": "Run",
+    "JUnit.MowerTest.should_increase_by_1_to_y_position_when_the_mower_move_forward_and_direction_is_N.executor": "Run",
     "JUnit.MowerTest.should_set_orientation_when_the_mower_turn_Left.executor": "Run",
     "JUnit.MowerTest.should_set_orientation_when_the_mower_turn_right.executor": "Run",
     "Maven.mower-kata [clean,install].executor": "Run",
@@ -77,6 +96,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.socgen.mowit.domain.exception" />
+      <recent name="com.socgen.mowit.domain.converter" />
       <recent name="com.socgen.mowit.domain.services" />
       <recent name="com.socgen.mowit.domain" />
     </key>
@@ -87,42 +108,71 @@
       <recent name="com.socgen.mowit.domain" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.socgen.mowit.domain" />
+      <recent name="com.socgen.mowit.domain.converter" />
       <recent name="com.socgen.mowit.services" />
       <recent name="com.socgen.mowit" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.socgen.mowit.domain.converter" />
+      <recent name="com.socgen.mowit.domain.exception" />
+    </key>
   </component>
-  <component name="RunManager" selected="JUnit.MowerControlTest">
-    <configuration name="MowerControlTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.All in mower-kata">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.socgen.mowit.Main" />
       <module name="mower-kata" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Abderrahim\IdeaProjects\mower-kata\src\main\resources\mowerInput.txt" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.socgen.mowit.services.*" />
+          <option name="PATTERN" value="com.socgen.mowit.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.socgen.mowit.services" />
-      <option name="MAIN_CLASS_NAME" value="com.socgen.mowit.services.MowerControlTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in mower-kata" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mower-kata" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EnumDirectionTest.test_get_ByCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mower-kata" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.socgen.mowit.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.socgen.mowit.domain" />
+      <option name="MAIN_CLASS_NAME" value="com.socgen.mowit.domain.EnumDirectionTest" />
+      <option name="METHOD_NAME" value="test_get_ByCode" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EnumInstructionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mower-kata" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.socgen.mowit.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.socgen.mowit.domain" />
+      <option name="MAIN_CLASS_NAME" value="com.socgen.mowit.domain.EnumInstructionTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MowerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="mower-kata" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.socgen.mowit.domain.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.socgen.mowit.services" />
-      <option name="MAIN_CLASS_NAME" value="com.socgen.mowit.domain.MowerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MowerTest.should_add_1_to_Y_position_when_the_mower_move_forward_and_direction_is_E" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EnumInstructionTest.test_get_enum_instruction_ByCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="mower-kata" />
       <extension name="coverage">
         <pattern>
@@ -131,52 +181,27 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.socgen.mowit.domain" />
-      <option name="MAIN_CLASS_NAME" value="com.socgen.mowit.domain.MowerTest" />
-      <option name="METHOD_NAME" value="should_add_1_to_Y_position_when_the_mower_move_forward_and_direction_is_E" />
+      <option name="MAIN_CLASS_NAME" value="com.socgen.mowit.domain.EnumInstructionTest" />
+      <option name="METHOD_NAME" value="test_get_enum_instruction_ByCode" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MowerTest.should_add_1_to_x_position_when_the_mower_move_forward_and_direction_is_N" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="mower-kata" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.socgen.mowit.domain.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.socgen.mowit.domain" />
-      <option name="MAIN_CLASS_NAME" value="com.socgen.mowit.domain.MowerTest" />
-      <option name="METHOD_NAME" value="should_add_1_to_x_position_when_the_mower_move_forward_and_direction_is_N" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MowerTest.should_set_orientation_when_the_mower_turn_right" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="mower-kata" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.socgen.mowit.domain.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.socgen.mowit.domain" />
-      <option name="MAIN_CLASS_NAME" value="com.socgen.mowit.domain.MowerTest" />
-      <option name="METHOD_NAME" value="should_set_orientation_when_the_mower_turn_right(com.socgen.mowit.domain.Direction,com.socgen.mowit.domain.Direction)" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.EnumDirectionTest.test_get_ByCode" />
+      <item itemvalue="JUnit.EnumInstructionTest" />
+      <item itemvalue="JUnit.EnumInstructionTest.test_get_enum_instruction_ByCode" />
+      <item itemvalue="JUnit.All in mower-kata" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MowerControlTest" />
-        <item itemvalue="JUnit.MowerTest" />
-        <item itemvalue="JUnit.MowerTest.should_set_orientation_when_the_mower_turn_right" />
-        <item itemvalue="JUnit.MowerTest.should_add_1_to_x_position_when_the_mower_move_forward_and_direction_is_N" />
-        <item itemvalue="JUnit.MowerTest.should_add_1_to_Y_position_when_the_mower_move_forward_and_direction_is_E" />
+        <item itemvalue="JUnit.All in mower-kata" />
+        <item itemvalue="JUnit.EnumInstructionTest" />
+        <item itemvalue="JUnit.EnumInstructionTest.test_get_enum_instruction_ByCode" />
+        <item itemvalue="JUnit.EnumDirectionTest.test_get_ByCode" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -340,7 +365,87 @@
       <option name="project" value="LOCAL" />
       <updated>1709829907307</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="[Mower-control] create acceptance tests">
+      <option name="closed" value="true" />
+      <created>1709831022758</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1709831022758</updated>
+    </task>
+    <task id="LOCAL-00020" summary="[Mower-control] make test pass">
+      <option name="closed" value="true" />
+      <created>1709833178136</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1709833178137</updated>
+    </task>
+    <task id="LOCAL-00021" summary="[Mower-control] make test pass">
+      <option name="closed" value="true" />
+      <created>1709836433604</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1709836433604</updated>
+    </task>
+    <task id="LOCAL-00022" summary="[Mower-control] make test pass">
+      <option name="closed" value="true" />
+      <created>1709836673998</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1709836673998</updated>
+    </task>
+    <task id="LOCAL-00023" summary="[Mower-control] make test pass">
+      <option name="closed" value="true" />
+      <created>1709837689585</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1709837689585</updated>
+    </task>
+    <task id="LOCAL-00024" summary="[Mower-control] make test pass">
+      <option name="closed" value="true" />
+      <created>1709845492022</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1709845492022</updated>
+    </task>
+    <task id="LOCAL-00025" summary="[Mower-instructions] add CommandConverter">
+      <option name="closed" value="true" />
+      <created>1709848485976</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1709848485976</updated>
+    </task>
+    <task id="LOCAL-00026" summary="add mockito dependency">
+      <option name="closed" value="true" />
+      <created>1709851585179</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1709851585179</updated>
+    </task>
+    <task id="LOCAL-00027" summary="[Mower-instructions] code refactoring">
+      <option name="closed" value="true" />
+      <created>1709853458449</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1709853458449</updated>
+    </task>
+    <task id="LOCAL-00028" summary="[Mower-instructions] code refactoring">
+      <option name="closed" value="true" />
+      <created>1709854876931</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1709854876931</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -363,15 +468,35 @@
     <MESSAGE value="[Mower] forward instruction - create tests" />
     <MESSAGE value="[Mower] forward instruction - make test pass" />
     <MESSAGE value="[Mower] forward instruction - code refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Mower] forward instruction - code refactoring" />
+    <MESSAGE value="[Mower-control] create acceptance tests" />
+    <MESSAGE value="[Mower-control] make test pass" />
+    <MESSAGE value="[Mower-instructions] add CommandConverter" />
+    <MESSAGE value="add mockito dependency" />
+    <MESSAGE value="[Mower-instructions] code refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Mower-instructions] code refactoring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/socgen/mowit/Main.java</url>
-          <line>7</line>
+          <line>41</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/socgen/mowit/Main.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/socgen/mowit/domain/converter/CommandConverter.java</url>
+          <line>8</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/socgen/mowit/domain/services/MowerControlTest.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

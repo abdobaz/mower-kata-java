@@ -1,7 +1,5 @@
 package com.socgen.mowit.domain;
 
-
-import com.socgen.mowit.domain.exception.UnknownDirection;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -18,7 +16,6 @@ public class Mower {
             case NORTH -> this.direction = EnumDirection.WEST;
             case EAST -> this.direction = EnumDirection.NORTH;
             case SOUTH -> this.direction = EnumDirection.EAST;
-            default -> throw new UnknownDirection(this.direction);
         }
     }
 
@@ -30,7 +27,6 @@ public class Mower {
             case NORTH -> this.getPosition().setY(currentYPosition + 1);
             case EAST -> this.getPosition().setX(currentXPosition + 1);
             case SOUTH -> this.getPosition().setY(currentYPosition - 1);
-            default -> throw new UnknownDirection(this.direction);
         }
     }
 
@@ -40,7 +36,6 @@ public class Mower {
             case NORTH -> this.direction = EnumDirection.EAST;
             case EAST -> this.direction = EnumDirection.SOUTH;
             case SOUTH -> this.direction = EnumDirection.WEST;
-            default -> throw new UnknownDirection(this.direction);
         }
     }
 }
