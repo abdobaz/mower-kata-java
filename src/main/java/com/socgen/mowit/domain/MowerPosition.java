@@ -7,6 +7,4 @@ import lombok.*;
 public class MowerPosition {
     private int x;
     private int y;
-
-
 }
