@@ -5,6 +5,7 @@ import com.socgen.mowit.domain.Lawn;
 import com.socgen.mowit.domain.Mower;
 import com.socgen.mowit.domain.converter.CommandConverter;
 import com.socgen.mowit.domain.exception.UnknownInstruction;
+import com.socgen.mowit.domain.port.MowerPrinterPort;
 import lombok.RequiredArgsConstructor;
 
 import java.util.function.Consumer;
@@ -14,10 +15,15 @@ import java.util.function.Consumer;
 public class MowerControl {
     private final Lawn lawn;
     private final CommandConverter commandConverter;
+    private final MowerPrinterPort mowerPrinterPort;
 
     public void execute(Mower mower, String command) {
         this.commandConverter.map(command)
                             .forEach(executeInstruction(mower));
+    }
+
+    public void printMowerInformation(Mower mower) {
+        mowerPrinterPort.printMower(mower);
     }
 
     private Consumer<EnumInstruction> executeInstruction(Mower mower) {

@@ -6,6 +6,7 @@ import com.socgen.mowit.domain.Mower;
 import com.socgen.mowit.domain.MowerPosition;
 import com.socgen.mowit.domain.converter.CommandConverter;
 import com.socgen.mowit.domain.exception.UnknownInstruction;
+import com.socgen.mowit.domain.port.MowerPrinterPort;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -28,6 +29,9 @@ class MowerControlTest {
 
     @Mock
     private CommandConverter commandConverter;
+
+    @Mock
+    private MowerPrinterPort mowerPrinterPort;
 
     @InjectMocks
     private MowerControl mowerControl;
@@ -131,5 +135,18 @@ class MowerControlTest {
         });
         verify(commandConverter, Mockito.only()).map(command);
 
+    }
+
+    @Test
+    void should_invoke_mowerPrinterPort_when_printMowerInformation() {
+        //GIVEN
+        var mowerInitialPosition = new MowerPosition(5, 5);
+        var mower = new Mower(mowerInitialPosition, EAST);
+
+        //WHEN
+        mowerControl.printMowerInformation(mower);
+
+        //THEN
+        verify(mowerPrinterPort,only()).printMower(mower);
     }
 }
