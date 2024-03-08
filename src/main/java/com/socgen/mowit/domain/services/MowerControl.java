@@ -1,9 +1,13 @@
 package com.socgen.mowit.domain.services;
 
+import com.socgen.mowit.domain.EnumInstruction;
 import com.socgen.mowit.domain.Lawn;
 import com.socgen.mowit.domain.Mower;
 import com.socgen.mowit.domain.converter.CommandConverter;
+import com.socgen.mowit.domain.exception.UnknownInstruction;
 import lombok.RequiredArgsConstructor;
+
+import java.util.function.Consumer;
 
 
 @RequiredArgsConstructor
@@ -13,19 +17,22 @@ public class MowerControl {
 
     public void execute(Mower mower, String command) {
         this.commandConverter.map(command)
-                        .forEach(enumInstruction -> {
-                            switch (enumInstruction) {
-                                case FORWARD -> moveForward(mower);
-                                case LEFT -> mower.turnLeft();
-                                case RIGHT -> mower.turnRight();
-                                default ->  throw new UnsupportedOperationException("Invalid instruction "+ enumInstruction);
-                            }
-                        } );
+                            .forEach(executeInstruction(mower));
+    }
+
+    private Consumer<EnumInstruction> executeInstruction(Mower mower) {
+        return enumInstruction -> {
+            switch (enumInstruction) {
+                case FORWARD -> moveForward(mower);
+                case LEFT -> mower.turnLeft();
+                case RIGHT -> mower.turnRight();
+                default -> throw new UnknownInstruction(enumInstruction.getCode());
+            }
+        };
     }
 
     private void moveForward(Mower mower) {
-        if(mower.getPosition().getX() + 1 >= 0 && mower.getPosition().getX() + 1 <= lawn.bottomRightCorner()
-                || mower.getPosition().getY() + 1 >= 0 && mower.getPosition().getY() + 1 <= lawn.upperRightCorner()) {
+        if(this.lawn.isInsideLAwnAfterForward(mower.getDirection(),mower.getPosition())) {
             mower.moveForward();
         }
     }

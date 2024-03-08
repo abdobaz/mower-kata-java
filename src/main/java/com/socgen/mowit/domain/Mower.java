@@ -6,7 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class Mower {
-
+    public static final int ONE_STEP = 1;
     private MowerPosition position;
     private EnumDirection direction;
 
@@ -23,10 +23,10 @@ public class Mower {
         var currentXPosition = this.getPosition().getX();
         var currentYPosition = this.getPosition().getY();
         switch (this.direction) {
-            case WEST -> this.getPosition().setX(currentXPosition - 1);
-            case NORTH -> this.getPosition().setY(currentYPosition + 1);
-            case EAST -> this.getPosition().setX(currentXPosition + 1);
-            case SOUTH -> this.getPosition().setY(currentYPosition - 1);
+            case WEST -> this.getPosition().setX(currentXPosition - ONE_STEP);
+            case NORTH -> this.getPosition().setY(currentYPosition + ONE_STEP);
+            case EAST -> this.getPosition().setX(currentXPosition + ONE_STEP);
+            case SOUTH -> this.getPosition().setY(currentYPosition - ONE_STEP);
         }
     }
 

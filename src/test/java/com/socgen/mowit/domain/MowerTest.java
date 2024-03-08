@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.*;
 
-public class MowerTest {
+class MowerTest {
 
     private final MowerPosition mowerPosition = new MowerPosition(0,0);
 
