@@ -14,12 +14,12 @@ class MainTest {
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
     @Test
     void should_throw_file_not_found_exception() {
-        assertThatThrownBy(()->Main.main(new String[]{}))
+        assertThatThrownBy(()->Main.main(new String[]{"file"}))
                 .isExactlyInstanceOf(FileNotFoundException.class);
     }
 
     @Test
-    void acceptance_test() {
+    void acceptance_test() throws FileNotFoundException {
 
         //GIVEN
         System.setOut(new PrintStream(outputStreamCaptor));
@@ -30,7 +30,7 @@ class MainTest {
 
         //THEN
         assertThat(outputStreamCaptor.toString().trim())
-                .isEqualTo("1 3 N 5 1 E");
+                .isEqualTo("1 3 N\r\n5 1 E");
     }
 
 }
