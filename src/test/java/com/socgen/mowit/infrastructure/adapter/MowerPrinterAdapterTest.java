@@ -2,33 +2,37 @@ package com.socgen.mowit.infrastructure.adapter;
 
 import com.socgen.mowit.domain.Mower;
 import com.socgen.mowit.domain.MowerPosition;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.MockedStatic;
 
-import java.util.logging.Logger;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
 import static com.socgen.mowit.domain.EnumDirection.EAST;
-import static org.mockito.Mockito.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class MowerPrinterAdapterTest {
 
     private final MowerPrinterAdapter mowerPrinterAdapter = new MowerPrinterAdapter();
+    private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
+
+    @BeforeEach
+    void init() {
+        System.setOut(new PrintStream(outputStreamCaptor));
+    }
 
     @Test
     void should_print_1_3_E_as_mower_information() {
         //GIVEN
         var mowerInitialPosition = new MowerPosition(1, 3);
         var mower = new Mower(mowerInitialPosition, EAST);
-        try(MockedStatic<Logger> loggerFactoryMockedStatic = mockStatic(Logger.class)) {
-            var logger = mock(Logger.class);
-            loggerFactoryMockedStatic.when(()-> Logger.getLogger(MowerPrinterAdapter.class.getName()))
-                    .thenReturn(logger);
-            //WHEN
-            mowerPrinterAdapter.printMower(mower);
 
-            //THEN check logger was invoked
-            verify(logger).info("1 3 E");
-        }
+        //WHEN
+        mowerPrinterAdapter.printMower(mower);
+
+        //THEN
+        assertThat(outputStreamCaptor.toString().trim())
+                .isEqualTo("1 3 E");
     }
 
     @Test
@@ -37,16 +41,11 @@ class MowerPrinterAdapterTest {
         var mowerInitialPosition = new MowerPosition(1, 3);
         var mower = new Mower(mowerInitialPosition, null);
 
-        try(MockedStatic<Logger> loggerFactoryMockedStatic = mockStatic(Logger.class)) {
-            var logger = mock(Logger.class);
-            loggerFactoryMockedStatic.when(()-> Logger.getLogger(MowerPrinterAdapter.class.getName()))
-                    .thenReturn(logger);
-            //WHEN
-            mowerPrinterAdapter.printMower(mower);
+        //WHEN
+        mowerPrinterAdapter.printMower(mower);
 
-            //THEN check logger was invoked
-            verifyNoInteractions(logger);
-        }
+        assertThat(outputStreamCaptor.toString().trim())
+                .isEmpty();
     }
 
 
@@ -55,15 +54,10 @@ class MowerPrinterAdapterTest {
         //GIVEN
         var mower = new Mower(null, EAST);
 
-        try(MockedStatic<Logger> loggerFactoryMockedStatic = mockStatic(Logger.class)) {
-            var logger = mock(Logger.class);
-            loggerFactoryMockedStatic.when(()-> Logger.getLogger(MowerPrinterAdapter.class.getName()))
-                    .thenReturn(logger);
-            //WHEN
-            mowerPrinterAdapter.printMower(mower);
+        //WHEN
+        mowerPrinterAdapter.printMower(mower);
 
-            //THEN check logger was invoked
-            verifyNoInteractions(logger);
-        }
+        assertThat(outputStreamCaptor.toString().trim())
+                .isEmpty();
     }
 }
